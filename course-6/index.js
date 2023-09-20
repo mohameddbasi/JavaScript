@@ -83,12 +83,12 @@ console.log(favcolors.length);
    Eg-2: function add(number1,number2){
         console.log(number1+number2)   
     }
-    add(45,500)*/
+    add(45,500)
 
 
 
          //operator
-
+ 
    let number1=5;
    let number2=20;
 
@@ -97,8 +97,52 @@ console.log(favcolors.length);
    console.log(number1 * number2)
    console.log(number1 / number2)
    console.log(number1 % number2)
-   console.log(number1 ** number2)
-   
+   console.log(number1 ** number2)*/
+
+
+                     // JS DOM
+  // console.log(window.innerHeight,innerWidth);
+
+
+ // window.open("https://google.com");
+ //window.close();
+ //window.moveTo(100,100);
+ //window.resizeTo(1000,600);
+ //window.alert("hello");
+ //window.prompt("what is your name?");
+//window.print();
+//console.log(console);
+
+
+
+//screen object
+//console.log(screen.width,screen.height)
+
+//location object
+//console.log(location);
+
+//setInterval(() => {
+//location.href="https://google.com";
+//}, 5000);
+
+//history object
+//history.back()
+//history.forward()
+
+
+//navigatory object
+//console.log(navigator.cookieEnabled);
+
+
+//console.dir(document);
+//console.log(document.domain);
+
+
+//let mydoc=document;
+mydoc.body.children[0].children[0].innerText="BOM";
+console.log(mydoc.body.children[1].children[1].children[0].children[0].innerText="DOM")
+
+
    
 
 
