@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS HTML  DOM</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{  //run body(document.load=function(){        })
+        const myapp=document.getElementById('app')
+        const heading=myapp.children[0]
+        const image=myapp.children[1]
+        
+        heading.innerHTML='<h1>I have changed!</h1>'
+        console.log('Image size: ${image.offsetWidth},${image.offsetHeight}');
+       // console.log(myapp);
+     })
+    </script>
 </head>
 <body>
-    <div>
+    <div id="app">
     <h1>hello</h1>
+    <img src="../course-8/image1.jpg" alt="stanger things">
     </div>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    
 </body>
 </html>
