@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS DOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,19 +16,48 @@
     <main id="main">
          <!-- alert -->
       <!-- <div class="alert">
-        <strong>✅successfully!</strong>food is updated!
+        <div class="alert-message">
+
+        
+        <strong>✅successfully! </strong> food is updated!
+        </div>
+        <button type="button">❌</button>
       </div>    -->
     <div class="input-container">
    <input type="text" name="input-food-name" placeholder="I like to eat..." class="input-food" id="input-food">
    <button class="input-button" id="input-button">save</button>
     </div>
-   
+    
   
     <ul id="food-container" class="food-container">
-        <li class="food-item">sambar</li>
-        <li class="food-item">rasam</li>
-        <li class="food-item">curd</li>
+        <li class="food-item">
+       <div>sambar</div>
+       <div onclick="removeItem(event)">
+         <i class="fa-solid fa-xmark"></i>
+       </div>  
+      </li>
+
+      <li class="food-item">
+      <div>rasam</div>
+      <div onclick="removeItem(event)">
+        <i class="fa-solid fa-xmark"></i>
+      </div>  
+     </li>
+
+     <li class="food-item">
+     <div>curd</div>
+     <div onclick="removeItem(event)">
+       <i class="fa-solid fa-xmark"></i>
+     </div>  
+    </li>
+
+      
+
+       
     </ul>
+    <!-- <button id="resyncbtn">Resync</button> -->
+    <div id="duplicate"></div>
+   
   
   </main>
  
