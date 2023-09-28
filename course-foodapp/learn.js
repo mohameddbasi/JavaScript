@@ -125,7 +125,7 @@
 
 
 
-
+       //clone
 // const foodcontainerEl=document.querySelector("#food-container");
 
 // //clonenode(false)only clones the top element   .False is default
@@ -155,6 +155,261 @@
 // duplicateEl.append(clonedatatrue);
 
 // })
+
+
+
+//             //looping over DOM elements
+// const foodcontainerEl=document.querySelectorAll(".food-container li");
+
+// const foodItems=[];
+// for(const item of foodcontainerEl){
+//  foodItems.push(item.innerText)   
+// }
+// console.log(foodItems);
+
+
+
+
+              //child DOM element
+// const foodcontainerEl=document.querySelector("#food-container");
+// const list=document.querySelectorAll("li");
+
+// // querySelectorAll:nodelist
+// console.log(list,list.length);
+
+// //children:HTMLcollection
+// console.log(foodcontainerEl.children);
+
+// //childnodes:nodelist
+// console.log(foodcontainerEl.childNodes);
+
+
+
+// const foodcontainerEl=document.querySelector("#food-container");
+// //firstchild/firstelementchild
+// console.log(foodcontainerEl.firstChild);
+// console.log(foodcontainerEl.firstElementChild.innerText);
+
+// //lastchild/lastelementchild
+// console.log(foodcontainerEl.lastChild);
+// console.log(foodcontainerEl.lastElementChild.innerText);
+
+
+
+
+
+
+              //parent DOM Elements
+// const foodcontainerEl=document.querySelector("#food-container li");
+// console.log(foodcontainerEl.innerText);
+//  console.log(foodcontainerEl.closest("main"));
+
+//  console.log(foodcontainerEl.parentNode);
+//  console.log(foodcontainerEl.parentElement.parentElement);
+
+
+//  console.log(document.body.parentNode);       //return <html> 
+//  console.log(document.body.parentElement);   //return <html> 
+
+
+
+//  console.dir(document.documentElement.parentNode); //the documentnode
+//  console.dir(document.documentElement.parentElement);  //null 
+
+//  console.log(document.nodeType);
+
+
+
+
+      //siblingnDOM Elements
+// const number=document.querySelector("ul:last-child li")
+// console.log(number.innerText)
+// console.log(number.nextSibling);
+// console.log(number.nextElementSibling.innerText);
+
+// console.log(number.previousSibling);
+// console.log(number.previousElementSibling.innerText);
+
+
+
+// const inputname=document.querySelector(".input-name-container input")
+// const username=prompt("what is your age")
+
+// // inputname.setAttribute("value",'username);
+// const saveint=parseInt(inputname,username)
+// // console.log(typeof inputname.value)
+// console.log(typeof saveint);
+
+
+    //task getattributes
+// const inputname=document.querySelector(".input-name-container input");
+// inputname.setAttribute("value","basith");
+// const getplace=inputname.getAttribute("place");
+// const getinterest=inputname.getAttribute("interest");
+// console.log(getplace,getinterest);
+
+
+     
+// console.log(inputname.attributes);                     //list all attributes of that element
+// console.log(inputname.attributes[5].name);            //attributes by index
+// console.log(inputname.attributes.place.value);       //attributes by propertyname
+// console.log(inputname.attributes["interest"].value);//attributes by bracket notation
+
+
+
+// //method
+// console.log(inputname.hasAttribute("age"));  //check for attributes existance :trur/false
+// inputname.removeAttribute("place")   //remove existing attributes
+
+
+
+// console.log(inputname.style);
+
+// console.log(inputname.dataset.place)
+
+
+
+
+
+   //task:display all attributes  dynamically
+// const inputname=document.querySelector(".input-name-container input");
+// for(let attr of inputname.attributes){
+// console.log(`${attr.name} is ${attr.value}`);
+// }
+
+
+
+
+// setting inline style
+// const inputname=document.querySelector(".input-name-container input");
+// const btnEl=document.querySelector(".input-name-container button");
+// style="padding: 5px 10px;  font-size: 10px;background-color: black;
+    // border: none; border-radius: 5px; color:white;"
+
+
+// 1.setattributes
+// btnEl.setAttribute(
+//     "style",
+//     "padding:5px 10px;font-size: 10px;background-color:black; border: none; border-radius:5px; color:white;"
+// );
+
+//2.direct property access
+// btnEl.style.padding="6px 10px";
+// btnEl.style.fontSize="10px";
+// btnEl.style.backgroundColor="black";
+// btnEl.style.border="none";
+// btnEl.style.borderRadius="5px";
+// btnEl.style.color="white"; 
+
+
+
+//3.CSSText
+// btnEl.style.cssText=
+// "padding:5px 10px;font-size: 10px;background-color:black; border: none; border-radius:5px; color:white;"
+
+
+// //getting the inlinestyle
+// console.log(btnEl.style.backgroundColor);
+
+// //getcomputedstyle()
+// console.log(window.getComputedStyle(btnEl,":hover"));
+
+
+//Task:Remove class stlying defined in style.css and write the css using javascript DOM.
+
+// .input-name-container{
+//     background-color: #f2f2f2;
+//     border-radius: 5px;
+//     padding: 10px;
+
+//  }
+//  .input-name-container input{
+//     padding:2px 10px;
+//     outline:none;
+//  }
+// const inputcontainer=document.querySelector(".input-name-container");
+// const inputname=document.querySelector(".input-name-container input");
+// const btnEl=document.querySelector(".input-name-container button");
+
+// inputcontainer.style.cssText="background-color: #f2f2f2; border-radius: 5px; padding: 10px;"
+// inputname.style.cssText="background-color:padding:2px 10px;  outline:none;"
+// btnEl.style.cssText="padding:5px 10px;font-size: 10px;background-color:black; border: none; border-radius:5px; color:white;"
+
+
+
+
+// const inputName=document.querySelector(".input-name-container input");
+
+//get
+// console.log(inputname.classname);
+//overwriteclassname
+// inputname.setAttribute("Class","newclassname");
+ 
+// inputName.className +=" newclassname newclassname3 newclassname4";
+// console.log(inputname.classList);
+ 
+// for(let cssClass of inputName.classList){
+// console.log(cssClass);
+// }
+
+
+//manipulation
+// console.log(inputName.classList.length)
+// inputName.classList.add("5class");
+// console.log(inputName.classList.contains("newclassname3"));
+//  console.log(inputName.classList.replace("newclassname4","newclassname44"));
+//  console.log(inputName.classList.remove("newclassname2")) 
+//  console.log(inputName.classList)
+// //  console.log(inputName.classList.toggle("basith")
+
+// setTimeout(() => {
+//     inputName.classList.toggle("basith-class");
+// }, 5000);
+
+
+// console.log(inputName.classList)
+
+
+//task:show dic based on click(toggle)
+const inputName=document.querySelector(".input-name-container input");
+const inputcontainer=document.querySelector(".input-name-container");
+const showbtnEl=document.querySelector("#showbtn");
+
+
+// showbtnEl.addEventListener("click",() => {
+//     if(inputcontainer.style.display==="none"){
+//         showbtnEl.innerText="Hide div";
+//         showbtnEl.style.backgroundColor="gray";
+//         inputcontainer.style.display="block";
+//     }
+//     else{
+//         inputcontainer.style.display="none";
+//         showbtnEl.style.backgroundColor ="blue";
+//         showbtnEl.innerText="Show div";
+//     }
+// });
+
+
+   
+     //animation added
+showbtnEl.addEventListener("click",() => {
+    if(inputcontainer.classList.contains("hide")){
+        showbtnEl.innerText="Hide div";
+        showbtnEl.style.backgroundColor="gray";
+        inputcontainer.classList.remove("hide");
+        
+    }
+    else{
+        inputcontainer.classList.add("hide");
+        showbtnEl.style.backgroundColor ="blue";
+        showbtnEl.innerText="Show div";
+    }
+});
+
+
+
+
+
 
 
 
