@@ -388,9 +388,7 @@ const showbtnEl=document.querySelector("#showbtn");
 //         showbtnEl.innerText="Show div";
 //     }
 // });
-
-
-   
+                        //or
      //animation added
 showbtnEl.addEventListener("click",() => {
     if(inputcontainer.classList.contains("hide")){
@@ -406,10 +404,66 @@ showbtnEl.addEventListener("click",() => {
     }
 });
 
+const creditEl=document.querySelector("header span")
+//(x)using html attributes
+// creditEl.setAttribute(
+//     "onclick", 'alert("Authored by mohamed-setattributes")'
+// );
+
+
+// drawbags -onclick is html element=>can't accept multiple actions
+// creditEl.onclick=function(){
+//     alert("Authored by mohamed")
+
+// creditEl.onclick=function(){
+//     alert("Authored by basith")//xxxxx
+// }
+
+//(best method)-addEventlistner accept all action
+// creditEl.addEventListener("click",function(){
+//     alert("Authored by mohamed");
+// });
+
+// creditEl.addEventListener("click",function(){
+//     alert("Authored by basith");
+// });
+               //or
+//   function handleCreditmsg(){  //function
+//     alert("Authored by mohamed");
+//     alert("Authored by basith");
+  
+//   }
+//   function handlecreditmsg2(){
+//     prompt("what is your name")
+//   }
+//   creditEl.addEventListener("click",handleCreditmsg);
+//   creditEl.addEventListener("click",handlecreditmsg2);
+//console.log(creditEl)
+
+
+//addEventListener
+//1.window.addeventlistner()
+//2.document.addeventlistner()
+//3.element.addeventlistner()
+
+ const handleCreditmsg=(event)=>{
+      // alert("javascript dom-basith");
+    console.log("event happening");
+   // creditEl.removeEventListener("click",handleCreditmsg)
+ };
+ creditEl.addEventListener("click",handleCreditmsg, {once:true});   //using remove or once(addeventlistner)
+
+// document.addEventListener("contextmenu",handleCreditmsg)
 
 
 
+//adding an eventlistner
+//creditEl.addEventListener("click",handleCreditmsg)
 
+//removing an eventlistner
+// setTimeout(()=>{
+//     creditEl.removeEventListener("click",handleCreditmsg);
+// }, 5000);
 
 
 

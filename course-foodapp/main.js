@@ -63,7 +63,13 @@ newfoodEl.append(divremovebtn);
 
 
 function removeItem(event){
- let existinglist= event.target.parentNode.parentNode
+ const existinglist= event.target.parentNode.parentNode;
+ //console.log("logging event",event.target.parentNode.parentNode); //>>>>>>>>>
 // alert('you have been clicked')
-existinglist.remove();
+existinglist.classList.add("hide");     //>>>>>animation not working??????
+existinglist.remove();                             //newway
+//existinglist.parentNode.removeChild(existinglist);  //oldway
 }
+
+
+
