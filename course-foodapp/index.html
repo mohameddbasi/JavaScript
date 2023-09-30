@@ -15,15 +15,7 @@
 
 
     <main id="main">
-         <!-- alert -->
-      <!-- <div class="alert">
-        <div class="alert-message">
-
-        
-        <strong>✅successfully! </strong> food is updated!
-        </div>
-        <button type="button">❌</button>
-      </div>    -->
+         
     <div class="input-container">
    <input type="text" name="input-food-name" placeholder="I like to eat..." class="input-food" id="input-food">
    <button class="input-button" id="input-button">save</button>
@@ -53,24 +45,32 @@
     </li>   
     </ul>
 
+    <!-- Event bubbling and capturing -->
+    <style> 
+    form{
+      background-color: white;
+      padding: 10px;
+    }
+    form,form *{
+      margin:10px;
+      border: 1px solid blue;
+      font-weight: bold;
+    }
+    form{
+      background-color: royalblue;
+    }
+    form div{
+      background-color: red;
+    }
+    form p{
+      background-color: aqua;
+    }
+      </style>
+    <form>form
+      <div>div
+      <p>P</p></div>
+       </form>
 
-    
-
-
-    <button type="button" id="showbtn"
-    style="margin:10px;font-size:10px;float: right;padding: 2px 10px;background-color:gray;border: none;border-radius: 5px;color: white;">
-    Hide Div</button>
-    <div class="input-name-container">
-    <input type="text" Id="nameid" name="fullname" placeholder="fullname" data-isalive="true" data-place="Thanjavur" data-interest="games"  
-    class="input-name-style"/>
-    <button>submit</button>
-    </div>
-
-
-
-
-    <!-- <button id="resyncbtn">Resync</button> -->
-    <!-- <div id="duplicate"></div> -->
   </main>
  
      <script src="main.js"></script>

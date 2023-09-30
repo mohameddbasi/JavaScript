@@ -35,33 +35,6 @@ newfoodEl.append(divItem);
 newfoodEl.append(divremovebtn);
 }); 
 
-{/* <li class="food-item">
-      <div>rasam</div>
-      <div onclick="removeItem(event)">
-        <i class="fa-solid fa-xmark"></i>
-      </div>  
-     </li> */}
-
-
-//getelementbyclassname
-//let fooditems=foodcontainer.getElementsByClassName("food-item");
-//console.log(fooditems)
-//let allfoods=[].map.call(fooditems, (food)=>food.textContent);
-//console.log(allfoods);
-
-
-
-//getelementbytagname
-//const fooditemsEl=document.getElementsByTagName("li");
-
-
-
-//queryselectors
-//const result=document.querySelector("li")
-//const result=document.querySelectorAll("li")
-//console.log(result[0].innerText);
-
-
 function removeItem(event){
  const existinglist= event.target.parentNode.parentNode;
  //console.log("logging event",event.target.parentNode.parentNode); //>>>>>>>>>
