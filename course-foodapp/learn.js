@@ -1,50 +1,28 @@
 const formEl=document.querySelector("form");
-const divEl=document.querySelector("form div");
-const pEl=document.querySelector("form p");
+const inputEl=document.querySelector("form input");
+const checkboxEl=document.querySelector("form input[type='checkbox']");
 
-formEl.addEventListener("click",(event)=>{
-    alert("form");
-    console.log(`Target: ${event.target.tagName}, this:${formEl.tagName}`) ;
-});
+formEl.addEventListener("submit",(event)=>{
+    event.preventDefault();  //stop default ations
+    if(
+        inputEl.value !="" ||
+        inputEl.value.length <=3 ||
+        inputEl.value.length >20
+    ){
+        alert("validation Error:Name Invalid");
+        return;
+    }
 
-
-divEl.addEventListener("click",(event)=>{
-    alert("Div");
-    //stop bubbling
-   // event.stopPropagation();
-  // event.stopImmediatePropagation();
+    if(!checkboxEl.checked){
+        alert("validation error:check the term.");
+        return;
+    }
     
+console.log("form submitted",inputEl.value, checkboxEl.checked);
+console.log("DefaultPrevented",event.defaultPrevented);
 });
 
 
 
-pEl.addEventListener("click",()=>{
-    alert("p");
-});
 
-
-
-
-
-
-//to catch an event on the capturing
-formEl.addEventListener("click",()=>{},{capture:true}); //by default false,
-
-
-//Task:catch the capture and bubbling
-for(let elem of document.querySelectorAll("form,form *")){
-    
-
-    //capturing phase
-    elem.addEventListener(
-        "click",
-         ()=>{
-        console.log(`capturing phase: ${elem.tagName}`);
-    },
-    {capture:true}
-    );
-    //bubbling phase
-    elem.addEventListener("click",()=>{
-        console.log(`Bubbling phase: ${elem.tagName}`);
-    });
-}
+ 

@@ -49,26 +49,34 @@
     <style> 
     form{
       background-color: white;
-      padding: 10px;
+      padding:10px;
     }
-    form,form *{
-      margin:10px;
-      border: 1px solid blue;
-      font-weight: bold;
+    form *{
+      margin: 5px;
     }
-    form{
-      background-color: royalblue;
+    form input{
+      padding: 5px 10px;
+      outline: none;
+      font-size: 10px;
     }
-    form div{
-      background-color: red;
+    .mt-10{
+      margin-top: 10px;
     }
-    form p{
-      background-color: aqua;
-    }
+
       </style>
-    <form>form
-      <div>div
-      <p>P</p></div>
+
+ <form>
+<div>
+  <input type="text" placeholder="full Name">
+</div>
+      <div>
+        <label for="terms" style="font-size: 10px;">
+        <input type="checkbox" id="terms">I accept the terms<a href="http://google.com" onclick="return false">terms and condition</a> <!--or "event.preventDefault()" -->
+      </lable>
+      </div>
+      <div>
+        <button style="padding:5px 10px;background-color: royalblue;border: none;color: white;border-radius: 5px;">submit</button>
+      </div>
        </form>
 
   </main>
