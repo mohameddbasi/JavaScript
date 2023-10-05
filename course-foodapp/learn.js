@@ -1,28 +1,35 @@
-const formEl=document.querySelector("form");
-const inputEl=document.querySelector("form input");
-const checkboxEl=document.querySelector("form input[type='checkbox']");
+const tableEL=document.querySelector("table")
+
+let selectedId;
+tableEL.addEventListener("click",(event) =>{
+    const target=event.target
+    const closestTr=target.closest("tr");
+
+    if(target.tagName==="TH")return;//ignoring TH
+
+if(selectedId != undefined){
+    selectedId.classList.remove("active");
+}
+selectedId=closestTr;
+
+closestTr.classList.add("active");
+    alert(`hello ${closestTr.children[0].textContent}`);
+})
+
+//Task:show a donate page on Toogle
+document.addEventListener("click",(event)=>{
+    const id=event.target.dataset.toggleId;
+    if (!id)return; //ignore all target place
+    const el=document.getElementById(id);
+    el.hidden=!el.hidden;
+});
+const formEl=document.querySelector("#donate-form")
 
 formEl.addEventListener("submit",(event)=>{
-    event.preventDefault();  //stop default ations
-    if(
-        inputEl.value !="" ||
-        inputEl.value.length <=3 ||
-        inputEl.value.length >20
-    ){
-        alert("validation Error:Name Invalid");
-        return;
-    }
-
-    if(!checkboxEl.checked){
-        alert("validation error:check the term.");
-        return;
-    }
-    
-console.log("form submitted",inputEl.value, checkboxEl.checked);
-console.log("DefaultPrevented",event.defaultPrevented);
+    event.preventDefault();
+   const donateamount= event.target.querySelector("input").value;
+   console.log(donateamount);
+alert(`Thanks you for donating $${donateamount}.`)
 });
 
 
-
-
- 
