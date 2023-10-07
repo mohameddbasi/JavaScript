@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feedback-Food cookplanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        🎂foodcook planner
+        <a href="index.html" style="padding: 2px 10px;font-size:10px;">Back</a>
+    </header>
+<main>
+    <h4>feedback form</h4>
+
+    <style>
+        form {
+            margin-top: 20px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        form * {
+            margin: 5px;
+            width: 100%;
+        }
+
+        form input,
+        textarea {
+            padding: 5px 10px;
+            font-size: 10px;
+            border: 1px solid gainsboro;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 5px 10px;
+            background-color: royalblue;
+            border: none;
+            color: #FFF;
+            border-radius: 5px
+        }
+
+        form label {
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            color: gray;
+            user-select: none;
+        }
+
+        form label input,
+        form input[type='radio'] {
+            width: auto;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+    </style>
+
+    <form name="feedback">
+        <div class="fullName">
+            <input type="text" name="fullName" placeholder="enter your fullname" required>
+        </div>
+<div class="d-flex">
+        <div class="d-flex">
+            <input type="radio" name="type" id="general-feedback" value="general-feedback">
+            <label for="general-feedback">General feedback</label>
+        </div>
+
+        <div class="d-flex">
+            <input type="radio" name="type" id="echnical-support" value="technical-support">
+            <label for="technical-support">Technical support</label>
+        </div>
+
+        <div class="d-flex">
+            <input type="radio" name="type" id="contribution" value="contribution">
+            <label for="contribution">contribution</label>
+        </div>
+</div>
+        <div>
+            <input type="email" name="email" placeholder="youu@awsome.com" required>
+        </div>
+        <div>
+            <textarea placeholder="Enter your feedback briefly!" name="desc" rows="4" required></textarea>
+        </div>
+        <div>
+            <lable for="terms">
+                <input type="checkbox" name="terms" id="terms" value="true" required/>
+                I accept terms and condition.
+            </lable>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+
+    </form>
+ 
+</main>
+     <script src="learn.js"></script>
+</body>
+</html>
