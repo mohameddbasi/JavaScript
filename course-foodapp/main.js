@@ -1,62 +1,122 @@
-//how to select DOM elements
+let inputFood = document.getElementById("input-food");
+let inputBtn = document.getElementById("input-button");
+let foodContainer = document.getElementById("food-container");
+let noListEl = document.getElementById("no-list");
+const foodListStatistics = document.getElementById("food-list-statistics");
 
-//1.getElementById()
-//2.getElementByClassName()
-//3.getElementByTagName()                  } METHODS
-//4.finding Elements by CSS selectors
-//5.queryselectors and queryselectorAll(DOM queryselector)   
+const localStorageKey = "foodItems";
 
+document.addEventListener("DOMContentLoaded", () => {
+  // localStorage fetch, draw ui.
+  const fetchedFoodItems = [
+...JSON.parse(localStorage.getItem(localStorageKey)),
+  ];
 
+  fetchedFoodItems.forEach((item) => {
+    let newFoodItemEl = document.createElement("li");
 
+    let div = document.createElement("div"); //for list-item
+    let divBtn = document.createElement("div");
 
-let inputfood=document.getElementById("input-food");
-let inputbutton=document.getElementById("input-button");
-let foodcontainer=document.getElementById("food-container");
+    newFoodItemEl.append(div, divBtn);
 
-const handleInputfood=()=>{
+    // assigning textContent & className to newFoodItemEl
+    div.textContent = item.foodItem;
+    newFoodItemEl.className = "food-item";
 
-//foodcontainer.innerHTML += `<li class="food-item"> ${inputfood.value.toUpperCase()}</li>`;
-let newfoodEl=document.createElement("li");
-const divItem=document.createElement("div");
-const divremovebtn=document.createElement("div")
+    divBtn.parentElement.setAttribute("onClick", "removeFoodItem(event)");
+    divBtn.innerHTML = `<i class="fa fa-xmark"></i>`;
+    newFoodItemEl.append(divBtn);
 
-newfoodEl.append(divItem,divremovebtn);
+    // appending newly created element(newFoodItemEl) to foodContainer
+    foodContainer.append(newFoodItemEl);
+  });
 
-
-divremovebtn.parentElement.setAttribute("onclick", "removeItem(event)")
-divremovebtn.innerHTML= '<i class="fa-solid fa-xmark"></i>';
-//assigning classname
-divItem.textContent=inputfood.value;
-newfoodEl.className="food-item";
-
-//append
-
-foodcontainer.append(newfoodEl);
-newfoodEl.append(divItem);
-newfoodEl.append(divremovebtn);
-}; 
-inputbutton.addEventListener("click",handleInputfood);
-
-inputfood.addEventListener("keyup",(event)=>{
-    if(event.key==="Enter"){
-        handleInputfood();
-    }else if(event.key==="keyZ" && (event.ctrlKey || event.metaKey)){
-        inputfood.value="";
-    }
+  refreshUI();
 });
 
+const handleInputFood = () => {
+  // creating li element
+  let newFoodItemEl = document.createElement("li");
 
+  let div = document.createElement("div"); //for list-item
+  let divBtn = document.createElement("div");
 
+  newFoodItemEl.append(div, divBtn);
 
-//remove
-function removeItem(event){
- const existinglist= event.target.parentNode.parentNode;
- //console.log("logging event",event.target.parentNode.parentNode); //>>>>>>>>>
-// alert('you have been clicked')
-//existinglist.classList.add("hide");     //>>>>>animation not working??????
-existinglist.remove();                             //newway
-//existinglist.parentNode.removeChild(existinglist);  //oldway
+  // assigning textContent & className to newFoodItemEl
+  div.textContent = inputFood.value;
+  newFoodItemEl.className = "food-item";
+
+  divBtn.parentElement.setAttribute("onClick", "removeFoodItem(event)");
+  divBtn.innerHTML = `<i class="fa fa-xmark"></i>`;
+  newFoodItemEl.append(divBtn);
+
+  // appending newly created element(newFoodItemEl) to foodContainer
+  foodContainer.append(newFoodItemEl);
+
+  // set localStorage
+  localStorage.setItem(
+    localStorageKey,
+    JSON.stringify([...JSON.parse(localStorage.getItem(localStorageKey) || "[]"),
+      { foodItem: inputFood.value },
+    ])
+  );
+
+  // resetting the inputFood value
+  inputFood.value = "";
+
+  refreshUI();
+};
+
+inputBtn.addEventListener("click", handleInputFood);
+
+inputFood.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    handleInputFood();
+  } else if (event.key === "KeyZ" && (event.ctrlKey || event.metaKey)) {
+    // Undo Operations
+    inputFood.value = "";
+  }
+});
+
+// remove Food items
+function removeFoodItem(event) {
+  const existingList = event.target.parentNode.parentNode;
+  existingList.remove();
+
+  // remove from localStorage
+  const fetchedFoodItems = [
+    ...JSON.parse(localStorage.getItem(localStorageKey)),
+  ];
+
+  fetchedFoodItems.forEach((item) => {
+    if (item.foodItem === existingList.innerText) {
+      fetchedFoodItems.splice(fetchedFoodItems.indexOf(item), 1);
+      // remove from localStorage
+    }
+  });
+
+  localStorage.setItem(localStorageKey, JSON.stringify(fetchedFoodItems));
+
+  refreshUI();
 }
 
+function refreshUI() {
+  foodListStatistics.innerText = `You have ${foodContainer.children.length} lists`;
+
+  // if (foodContainer.children.length > 0) {
+  //   //  children exist, so don't show `no-list` div
+  //   noListEl.hidden = true;
+  // } else {
+  //   // children not exist, show `no-list` div
+  //   noListEl.hidden = false;
+  // }
+
+  // You can write better!
+  foodContainer.children.length > 0
+    ? ((noListEl.hidden = true), (foodListStatistics.hidden = false))
+    : ((noListEl.hidden = false), (foodListStatistics.hidden = true));
+}
 
 
